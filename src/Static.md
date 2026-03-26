@@ -32,12 +32,17 @@ interface vlan (你的VLAN号)
 ip address 192.168.10.1 255.255.255.0
 no shutdown
 exit
+```
+
 配完别忘了保存：
+
+```
 end
 wr
 ```
 
 </details>
+
 
 <details>
 <summary>华为&华三</summary>
