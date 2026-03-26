@@ -15,6 +15,7 @@
 <details>
 <summary>思科（Cisco）</summary>
 给物理接口配 IP（常用于路由器）：
+  
 ```
 enable
 configure terminal
@@ -25,8 +26,9 @@ exit
 ```
 
 给三层交换机的 VLAN 接口（SVI）配 IP：
+
 ```
-interface vlan 10
+interface vlan (你的VLAN号)
 ip address 192.168.10.1 255.255.255.0
 no shutdown
 exit
@@ -34,24 +36,35 @@ exit
 end
 wr
 ```
+
 </details>
 
-<summary>华为&华三</summary>7
 <details>
+<summary>华为&华三</summary>
 物理接口：
+
 ```
 system-view
 interface gigabitethernet 0/0/0
 ip address 192.168.1.1 24
 quit
 ```
+
 VLANIF 接口：
+
 ```
-interface vlanif 10
+interface vlanif (你的VLAN号)
 ip address 192.168.10.1 24
 quit
 ```
+
 保存：
+
 ```
 save
 ```
+</details>
+
+---
+
+当你设置好这些，你就可以按照你的IP范围、子网掩码与网关地址在对应的客户机上设置静态IP。本文不再赘述。
