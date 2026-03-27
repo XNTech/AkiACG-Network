@@ -42,9 +42,16 @@
 
 华为的思路类似，但命令不一样：
 
-1. 重启按 `Ctrl+B` 进入BootROM菜单
+1. 重启按 `Ctrl+B` 或 `Ctrl+E` 进入BootROM菜单
 2. 选择 **"Clear password"** 或忽略配置启动
-3. 重启后删除 `startup.cfg` 和 `vlan.data`
+3. 重启后删除 `vrpcfg.zip` （或 `vrpcfg.cfg` ，视版本而定），或者在 `用户视图` 下执行 `reset factory-configuration`
+
+注意事项：
+- BootROM菜单可能会有密码，可先尝试缺省密码：`9300` 或 `huawei`（V100）, `Admin@huawei.com`（V200及以后）
+- 如果BootROM密码被改了，在能登录Console的情况下可以在 `用户视图` 下使用 `reset boot password`（旧版本）或者直接使用 `reset factory-configuration` 恢复出厂设置
+- 如果无法登录Console，也无法进入BootROM，请检查机身上是否有 `PNP` 按键，如果有，长按该按键6秒以上可直接恢复出厂设置
+- 如果连PNP按键都没有，~~那没招了，除了**返厂维修**没别的方法了~~
+详见[S200, S1700, S5700，S6700交换机忘记密码怎么办（V200）](https://support.huawei.com/enterprise/zh/doc/EDOC1100197181/ba95f0ac)/[（V600）](https://support.huawei.com/enterprise/zh/doc/EDOC1100497097/eecbd81d)
 
 具体步骤因版本而异，但核心逻辑一样：
 **绕过配置 → 清空配置 → 恢复正常**
